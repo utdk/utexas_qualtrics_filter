@@ -4,11 +4,11 @@
   "description": "Custom text filter to allow Qualtrics forms into WYSIWYG fields",
   "keywords": ["Drupal"],
   "license": "GPL-2.0+",
-  "homepage": "https://www.drupal.org/project/utexas_qualtrics_filter",
+  "homepage": "https://github.austin.utexas.edu/eis1-wcs/utexas_qualtrics_filter",
   "minimum-stability": "dev",
   "support": {
-    "issues": "https://www.drupal.org/project/issues/utexas_qualtrics_filter",
-    "source": "http://cgit.drupalcode.org/utexas_qualtrics_filter"
+    "issues": "https://github.austin.utexas.edu/eis1-wcs/utexas_qualtrics_filter/issues",
+    "source": "https://github.austin.utexas.edu/eis1-wcs/utexas_qualtrics_filter"
   },
   "require": { }
 }
