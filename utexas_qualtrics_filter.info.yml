@@ -1,0 +1,5 @@
+name: UTexas Qualtrics Filter
+type: module
+description: Custom text filter to allow Qualtrics forms into WYSIWYG fields
+core: 8.x
+package: UTexas
