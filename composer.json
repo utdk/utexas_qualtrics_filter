@@ -10,5 +10,7 @@
     "issues": "https://github.austin.utexas.edu/eis1-wcs/utexas_qualtrics_filter/issues",
     "source": "https://github.austin.utexas.edu/eis1-wcs/utexas_qualtrics_filter"
   },
-  "require": { }
+  "require": {
+      "composer/installers": "~1.0"
+  }
 }
