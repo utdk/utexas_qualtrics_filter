@@ -20,7 +20,8 @@ class qualtricsbutton extends CKEditorPluginBase {
    * Implements \Drupal\ckeditor\Plugin\CKEditorPluginInterface::getFile().
    */
   public function getFile() {
-    return base_path() .'libraries/qualtricsbutton/plugin.js';
+    $path = drupal_get_path('module', 'utexas_qualtrics_filter');
+    return $path . '/qualtricsbutton/plugin.js';
   }
 
   /**
