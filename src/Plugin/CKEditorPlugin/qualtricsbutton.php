@@ -45,7 +45,7 @@ class qualtricsbutton extends CKEditorPluginBase {
     return array(
       'qualtricsbutton' => array(
         'label' => t('Qualtrics Button'),
-        'image' => '/libraries/qualtricsbutton/icons/qualtricsbutton.png',
+        'image' => drupal_get_path('module', 'utexas_qualtrics_filter') . '/qualtricsbutton/icons/qualtricsbutton.png',
       ),
     );
   }
