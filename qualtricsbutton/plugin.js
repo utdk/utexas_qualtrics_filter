@@ -48,7 +48,7 @@
           {
             type: 'text',
             id: 'title',
-            label: 'Title (optional, not displayed; used for HTML semantics.)',
+            label: 'Title (not visible; used for screen readers. Defaults to "Qualtrics Form")',
             commit: function(data) {
               data.title = this.getValue();
             }
