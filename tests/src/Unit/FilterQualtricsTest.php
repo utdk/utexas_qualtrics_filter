@@ -20,7 +20,7 @@ class FilterQualtricsTest extends UnitTestCase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
     $configuration['settings'] = [
       'allowed_html' => '<a href> <p> <em> <strong> <cite> <blockquote> <code class="pretty boring align-*"> <ul alpaca-*="wooly-* strong"> <ol llama-*> <li> <dl> <dt> <dd> <br> <h3 id> <iframe>',
