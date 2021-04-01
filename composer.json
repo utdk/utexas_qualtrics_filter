@@ -1,6 +1,6 @@
 {
   "name": "utexas/utexas_qualtrics_filter",
-  "type": "drupal-module",
+  "type": "drupal-custom-module",
   "description": "Custom text filter to allow Qualtrics forms into WYSIWYG fields",
   "keywords": ["Drupal"],
   "license": ["GPL-2.0-or-later"],
