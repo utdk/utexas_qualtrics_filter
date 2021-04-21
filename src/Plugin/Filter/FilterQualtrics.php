@@ -1,4 +1,5 @@
 <?php
+
 namespace Drupal\utexas_qualtrics_filter\Plugin\Filter;
 
 use Drupal\filter\FilterProcessResult;
@@ -25,10 +26,10 @@ class FilterQualtrics extends FilterBase {
       $result = $this->utexas_qualtrics_filter($text);
       $result = new FilterProcessResult($result);
       // Add CSS if checkbox variable checked.
-      if($this->settings['qualtrics_css']){
-        $result->setAttachments(array(
-          'library' => array('utexas_qualtrics_filter/qualtrics-form'),
-        ));
+      if ($this->settings['qualtrics_css']) {
+        $result->setAttachments([
+          'library' => ['utexas_qualtrics_filter/qualtrics-form'],
+        ]);
       }
       return $result;
     }
@@ -39,15 +40,14 @@ class FilterQualtrics extends FilterBase {
    * Settings form.
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
-    $form['qualtrics_css'] = array(
+    $form['qualtrics_css'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Add CSS?'),
-      '#default_value' => $this->settings['qualtrics_css'],
+      '#default_value' => $this->settings['qualtrics_css'] ?? NULL,
       '#description' => $this->t('Add styles to Qualtrics form rendered in nodes.'),
-    );
+    ];
     return $form;
   }
-
 
   /**
    * Callback function that will update the $text variable.
@@ -56,9 +56,9 @@ class FilterQualtrics extends FilterBase {
     // Lookup for all qualtrics urls in the WYSIWYG field.
     if (preg_match_all('/\[embed\]((.+qualtrics.com.+))?( .+)?\[\/embed\]/iU', $text, $matches_code)) {
       foreach ($matches_code[0] as $ci => $code) {
-        $form = array(
+        $form = [
           'source' => $matches_code[2][$ci],
-        );
+        ];
 
         // Override default attributes.
         if ($matches_code[3][$ci] && preg_match_all('/\|\s*([a-zA-Z_]+)\:(\s*)?([0-9a-zA-Z \/]+)(\s*)/i', $matches_code[3][$ci], $matches_attributes)) {
