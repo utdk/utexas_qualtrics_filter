@@ -6,7 +6,7 @@ use Drupal\editor\Entity\Editor;
 use Drupal\ckeditor\CKEditorPluginBase;
 
 /**
- * Defines the "qualtricsbutton" plugin.
+ * Defines the "Qualtricsbutton" plugin.
  *
  * @CKEditorPlugin(
  *   id = "qualtricsbutton",
@@ -14,13 +14,13 @@ use Drupal\ckeditor\CKEditorPluginBase;
  *   module = "utexas_qualtrics_filter"
  * )
  */
-class qualtricsbutton extends CKEditorPluginBase {
+class QualtricsButtonCKE4 extends CKEditorPluginBase {
 
   /**
    * Implements \Drupal\ckeditor\Plugin\CKEditorPluginInterface::getFile().
    */
   public function getFile() {
-    $path = drupal_get_path('module', 'utexas_qualtrics_filter');
+    $path = \Drupal::service('extension.list.module')->getPath('utexas_qualtrics_filter');
     return $path . '/qualtricsbutton/plugin.js';
   }
 
@@ -28,7 +28,7 @@ class qualtricsbutton extends CKEditorPluginBase {
    * {@inheritdoc}
    */
   public function getLibraries(Editor $editor) {
-    return array();
+    return [];
   }
 
   /**
@@ -42,19 +42,19 @@ class qualtricsbutton extends CKEditorPluginBase {
    * {@inheritdoc}
    */
   public function getButtons() {
-    return array(
-      'qualtricsbutton' => array(
-        'label' => t('Qualtrics Button'),
-        'image' => drupal_get_path('module', 'utexas_qualtrics_filter') . '/qualtricsbutton/icons/qualtricsbutton.png',
-      ),
-    );
+    return [
+      'qualtricsbutton' => [
+        'label' => 'Qualtrics Button',
+        'image' => \Drupal::service('extension.list.module')->getPath('utexas_qualtrics_filter') . '/qualtricsbutton/icons/qualtricsbutton.png',
+      ],
+    ];
   }
 
   /**
    * {@inheritdoc}
    */
   public function getConfig(Editor $editor) {
-    return array();
+    return [];
   }
 
 }
