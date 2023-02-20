@@ -21,7 +21,7 @@ class QualtricsButtonCKE4 extends CKEditorPluginBase {
    */
   public function getFile() {
     $path = \Drupal::service('extension.list.module')->getPath('utexas_qualtrics_filter');
-    return $path . '/qualtricsbutton/plugin.js';
+    return $path . '/js/ckeditor4_plugins/qualtricsbutton/plugin.js';
   }
 
   /**
@@ -45,7 +45,7 @@ class QualtricsButtonCKE4 extends CKEditorPluginBase {
     return [
       'qualtricsbutton' => [
         'label' => 'Qualtrics Button',
-        'image' => \Drupal::service('extension.list.module')->getPath('utexas_qualtrics_filter') . '/qualtricsbutton/icons/qualtricsbutton.png',
+        'image' => \Drupal::service('extension.list.module')->getPath('utexas_qualtrics_filter') . '/js/ckeditor4_plugins/qualtricsbutton/icons/qualtricsbutton.png',
       ],
     ];
   }

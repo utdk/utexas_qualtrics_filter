@@ -12,8 +12,8 @@ use Drupal\Component\Render\PlainTextOutput;
  *
  * @Filter(
  *   id = "filter_qualtrics",
- *   title = @Translation("Qualtrics Filter"),
- *   description = @Translation("Help this text format filter qualtrics forms."),
+ *   title = @Translation("Render Qualtrics shortcodes"),
+ *   description = @Translation("Display Qualtrics shortcodes in the rich text editors as forms."),
  *   type = Drupal\filter\Plugin\FilterInterface::TYPE_TRANSFORM_REVERSIBLE,
  * )
  */

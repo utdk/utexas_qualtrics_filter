@@ -13,10 +13,9 @@ Resolves #
 - [ ] Combo change (requires changes from another repo):
 
 ## Reference: running tests locally
-1. `fin test web/profiles/contrib/utexas/tests/src/Functional`
-1. `fin test-js web/profiles/contrib/utexas/tests/src/FunctionalJavascript`
+1. `fin test web/modules/custom/utexas_qualtrics_filter/tests/`
 
-## Setup
-1. Use https://utdirect.utexas.edu/apps/wcs/wcms/utdk3/environment-generator to generate the command related to this branch.
+## Local Development/Testing Setup
+1. After spinning up a normal Drupal site, `git clone` the branch associated with  this pull request into `web/modules/custom/utexas_qualtrics_filter`
 
 ## Acceptance criteria
