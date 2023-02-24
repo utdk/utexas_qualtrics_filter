@@ -87,8 +87,9 @@ class FilterQualtrics extends FilterBase {
    */
   protected function renderIframe($form) {
     if (!filter_var($form['source'], FILTER_VALIDATE_URL) === FALSE) {
+      $hash = md5($form['source']);
       $output = '<iframe src="' . $form['source'] . '" width="100%" scrolling="auto" name="Qualtrics"
-      align="center" height="' . $form['height'] . '" frameborder="no" title="' . $form['title'] . '" class="qualtrics-form" ></iframe>';
+      align="center" height="' . $form['height'] . '" frameborder="no" title="' . $form['title'] . '" class="qualtrics-form" id="qualtrics-embed-' . $hash . '" ></iframe>';
       return $output;
     }
     else {
