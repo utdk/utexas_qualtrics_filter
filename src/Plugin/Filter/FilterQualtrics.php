@@ -8,11 +8,13 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Component\Render\PlainTextOutput;
 
 /**
+ * Convert shortcode to iframe.
+ *
  * @Filter(
  *   id = "filter_qualtrics",
- *   title = @Translation("Qualtrics Filter"),
- *   description = @Translation("Help this text format filter qualtrics forms."),
- *   type = Drupal\filter\Plugin\FilterInterface::TYPE_MARKUP_LANGUAGE,
+ *   title = @Translation("Render Qualtrics shortcodes"),
+ *   description = @Translation("Display Qualtrics shortcodes in the rich text editors as forms."),
+ *   type = Drupal\filter\Plugin\FilterInterface::TYPE_TRANSFORM_REVERSIBLE,
  * )
  */
 class FilterQualtrics extends FilterBase {
@@ -23,7 +25,7 @@ class FilterQualtrics extends FilterBase {
   public function process($text, $langcode) {
     // Do nothing if there is no oembed objects in the body field.
     if (strpos($text, "qualtrics.com")) {
-      $result = $this->utexas_qualtrics_filter($text);
+      $result = $this->convertToIframe($text);
       $result = new FilterProcessResult($result);
       // Add CSS if checkbox variable checked.
       if ($this->settings['qualtrics_css']) {
@@ -52,7 +54,7 @@ class FilterQualtrics extends FilterBase {
   /**
    * Callback function that will update the $text variable.
    */
-  public function utexas_qualtrics_filter($text) {
+  public function convertToIframe($text) {
     // Lookup for all qualtrics urls in the WYSIWYG field.
     if (preg_match_all('/\[embed\]((.+qualtrics.com.+))?( .+)?\[\/embed\]/iU', $text, $matches_code)) {
       foreach ($matches_code[0] as $ci => $code) {
@@ -70,7 +72,7 @@ class FilterQualtrics extends FilterBase {
         $form['height'] = filter_var(isset($form['height']), FILTER_VALIDATE_INT) ? trim($form['height']) : 500;
         $form['title'] = PlainTextOutput::renderFromHtml(isset($form['title']) ? trim($form['title']) : 'Qualtrics Form');
 
-        if (!$replacement = $this->_utexas_qualtrics_filter_iframe($form)) {
+        if (!$replacement = $this->renderIframe($form)) {
           // Invalid callback.
           $replacement = '<!-- QUALTRICS FILTER - INVALID CALLBACK IN: ' . $code . ' -->';
         }
@@ -83,14 +85,16 @@ class FilterQualtrics extends FilterBase {
   /**
    * Wrapper that calls the theme function.
    */
-  function _utexas_qualtrics_filter_iframe($form) {
+  protected function renderIframe($form) {
     if (!filter_var($form['source'], FILTER_VALIDATE_URL) === FALSE) {
+      $hash = md5($form['source']);
       $output = '<iframe src="' . $form['source'] . '" width="100%" scrolling="auto" name="Qualtrics"
-      align="center" height="' . $form['height'] . '" frameborder="no" title="' . $form['title'] . '" class="qualtrics-form" ></iframe>';
+      align="center" height="' . $form['height'] . '" frameborder="no" title="' . $form['title'] . '" class="qualtrics-form" id="qualtrics-embed-' . $hash . '" ></iframe>';
       return $output;
     }
-    else
+    else {
       return FALSE;
+    }
   }
 
 }
