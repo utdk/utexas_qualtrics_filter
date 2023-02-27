@@ -14,7 +14,7 @@
     "ckeditor5": "^31.1.0"
   },
   "devDependencies": {
-    "@ckeditor/ckeditor5-dev-utils": "^25.4.5",
+    "@ckeditor/ckeditor5-dev-utils": "^34.1.1",
     "raw-loader": "^4.0.2",
     "terser-webpack-plugin": "^5.2.0",
     "webpack": "^5.51.1",
