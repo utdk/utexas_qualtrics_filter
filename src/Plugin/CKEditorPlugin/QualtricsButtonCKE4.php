@@ -2,8 +2,8 @@
 
 namespace Drupal\utexas_qualtrics_filter\Plugin\CKEditorPlugin;
 
-use Drupal\editor\Entity\Editor;
 use Drupal\ckeditor\CKEditorPluginBase;
+use Drupal\editor\Entity\Editor;
 
 /**
  * Defines the "Qualtricsbutton" plugin.
